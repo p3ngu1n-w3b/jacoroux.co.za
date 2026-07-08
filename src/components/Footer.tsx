@@ -86,9 +86,7 @@ export function Footer() {
             © {year} {siteConfig.name}. All rights reserved.
           </p>
           <p>
-            Domain placeholder:{" "}
-            <span className="text-fog">jacoroux.co.za</span> /{" "}
-            <span className="text-fog">jacoroux.dev</span>
+            <span className="text-fog">jacoroux.co.za</span>
           </p>
         </div>
       </div>
