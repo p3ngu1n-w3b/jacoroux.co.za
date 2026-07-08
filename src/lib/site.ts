@@ -89,7 +89,7 @@ export const processSteps = [
     step: "02",
     title: "Design",
     description:
-      "I shape a dark, distinctive direction tailored to your brand, with layouts that highlight offers and CTAs.",
+      "I shape a distinctive direction tailored to your brand, with layouts that highlight offers and CTAs.",
   },
   {
     step: "03",
