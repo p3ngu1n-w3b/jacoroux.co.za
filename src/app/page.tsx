@@ -28,9 +28,10 @@ export default function HomePage() {
               website.
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-fog-muted sm:text-lg">
-              I am {siteConfig.name}, senior frontend developer. I design
-              high-impact websites for South African businesses that need to
-              stand out, load fast, and turn visitors into calls and WhatsApps.
+              I am {siteConfig.name}, senior frontend developer. I design and
+              build tailored websites for South African businesses, from lead
+              generation and e-commerce to portals, booking flows, and
+              completely custom digital experiences.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -50,10 +51,11 @@ export default function HomePage() {
           <div className="relative">
             <div className="grid-noise rounded-[2rem] border border-white/15 bg-ink-card/70 p-6 backdrop-blur">
               <p className="text-xs uppercase tracking-[0.2em] text-neon-lime">
-                Creative engineering
+                Strategic web craft
               </p>
               <p className="mt-4 font-display text-3xl text-white">
-                Awwwards-inspired visual direction, grounded in conversion.
+                Awwwards-inspired visual direction, built around your exact
+                goals.
               </p>
               <dl className="mt-8 grid grid-cols-2 gap-4">
                 <div>
@@ -88,33 +90,65 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="services" className="px-4 py-24 sm:px-6 lg:px-8">
+      <section id="services" className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_10%_10%,rgba(255,43,214,0.14),transparent_35%),radial-gradient(circle_at_90%_20%,rgba(182,255,61,0.12),transparent_30%)]" />
         <div className="mx-auto max-w-7xl">
-          <h2 className="font-display text-4xl text-white sm:text-5xl">
+          <p className="inline-block rounded-full border border-neon-pink/40 bg-neon-pink/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-neon-pink">
+            Services
+          </p>
+          <h2 className="mt-4 max-w-3xl font-display text-4xl text-white sm:text-5xl">
             Services with a stronger visual identity
           </h2>
-          <div className="mt-10 grid gap-5 md:grid-cols-6">
+          <p className="mt-4 max-w-2xl text-fog-muted">
+            Built for local businesses that need trust, clarity, and enquiry
+            flow. Each package is shaped around outcomes, not template fluff.
+          </p>
+          <div className="relative mt-10 grid gap-5 md:grid-cols-12">
             {services.map((service, index) => (
               <article
                 key={service.id}
-                className={`rounded-3xl border border-white/10 bg-ink-card/70 p-6 ${
-                  index % 3 === 0
-                    ? "md:col-span-3"
-                    : index % 3 === 1
-                      ? "md:col-span-2"
-                      : "md:col-span-1"
+                className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-card/80 p-6 transition hover:border-neon-pink/45 hover:shadow-[0_0_36px_rgba(255,43,214,0.12)] sm:p-7 ${
+                  index === 0
+                    ? "md:col-span-7 md:row-span-2"
+                    : index === 1
+                      ? "md:col-span-5"
+                      : "md:col-span-6"
                 }`}
               >
-                <p className="text-xs uppercase tracking-[0.2em] text-neon-pink">
-                  {service.priceFrom}
-                </p>
-                <h3 className="mt-2 font-display text-2xl text-white">
+                <div className="pointer-events-none absolute right-0 top-0 h-20 w-20 rounded-bl-[2rem] bg-neon-violet/10 blur-2xl transition group-hover:bg-neon-pink/15" />
+                <div className="flex items-start justify-between gap-4">
+                  <span className="font-display text-xs uppercase tracking-[0.22em] text-neon-violet">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span className="rounded-full border border-neon-lime/35 bg-neon-lime/10 px-3 py-1 text-xs font-medium text-neon-lime">
+                    {service.priceFrom}
+                  </span>
+                </div>
+                <h3 className="mt-5 font-display text-2xl text-white sm:text-[1.75rem]">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-sm text-fog-muted">{service.summary}</p>
+                <p className="mt-3 text-sm leading-relaxed text-fog-muted">
+                  {service.summary}
+                </p>
+                <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  {service.points.map((point) => (
+                    <li key={point} className="flex items-center gap-2 text-sm text-fog">
+                      <span className="h-1.5 w-1.5 rounded-full bg-neon-pink" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
+          <p className="mt-8 text-sm text-fog-muted">
+            Pricing is a starting guide. Final quotes depend on scope, content,
+            and integrations.{" "}
+            <a href="#contact" className="text-neon-pink hover:underline">
+              Tell me what you need
+            </a>{" "}
+            and I&apos;ll send a clear estimate.
+          </p>
         </div>
       </section>
 
