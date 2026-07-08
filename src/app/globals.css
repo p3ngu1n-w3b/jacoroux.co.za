@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #05070a;
+  --color-ink-soft: #0b0f14;
+  --color-ink-card: #10161f;
+  --color-ink-border: #1c2430;
+  --color-fog: #c7d0dc;
+  --color-fog-muted: #8b96a8;
+  --color-neon-pink: #ff2bd6;
+  --color-neon-lime: #b6ff3d;
+  --color-neon-violet: #b56bff;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-syne), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-fog antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255, 43, 214, 0.12), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, rgba(181, 107, 255, 0.1), transparent),
+      radial-gradient(ellipse 50% 30% at 0% 20%, rgba(182, 255, 61, 0.06), transparent);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-neon-pink/30 text-white;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-neon-pink;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .text-glow-pink {
+    text-shadow: 0 0 24px rgba(255, 43, 214, 0.45);
+  }
+
+  .text-glow-lime {
+    text-shadow: 0 0 24px rgba(182, 255, 61, 0.4);
+  }
+
+  .glow-border {
+    box-shadow:
+      0 0 0 1px rgba(255, 43, 214, 0.25),
+      0 0 32px rgba(255, 43, 214, 0.08);
+  }
+
+  .glow-border-lime {
+    box-shadow:
+      0 0 0 1px rgba(182, 255, 61, 0.25),
+      0 0 32px rgba(182, 255, 61, 0.08);
+  }
+
+  .glow-border-violet {
+    box-shadow:
+      0 0 0 1px rgba(181, 107, 255, 0.3),
+      0 0 32px rgba(181, 107, 255, 0.1);
+  }
+
+  .grid-noise {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    mask-image: linear-gradient(
+      to right,
+      transparent 0%,
+      black 10%,
+      black 90%,
+      transparent 100%
+    );
+  }
+
+  .marquee-track {
+    display: inline-flex;
+    min-width: 200%;
+    animation: marquee 24s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
