@@ -25,17 +25,17 @@ npm start
 
 ## Contact form
 
-Without Resend, submitting the form opens the visitor’s mail client with a pre-filled enquiry to `jaco.roux9@gmail.com`.
+Without Resend, submitting the form opens the visitor’s mail client with a pre-filled enquiry to `email@jacoroux.co.za`.
 
 To send email server-side, create `.env.local`:
 
 ```env
 RESEND_API_KEY=re_xxxxxxxx
-CONTACT_TO_EMAIL=jaco.roux9@gmail.com
-CONTACT_FROM_EMAIL=Portfolio <onboarding@resend.dev>
+CONTACT_TO_EMAIL=email@jacoroux.co.za
+CONTACT_FROM_EMAIL=Jaco Roux <email@jacoroux.co.za>
 ```
 
-After verifying a domain in Resend, set `CONTACT_FROM_EMAIL` to something like `Jaco Roux <hello@jacoroux.co.za>`.
+After verifying a domain in Resend, keep `CONTACT_FROM_EMAIL` aligned to the address you want recipients to see, for example `Jaco Roux <email@jacoroux.co.za>`.
 
 ## Deploy (recommended: Vercel)
 
@@ -67,7 +67,7 @@ Alternatives if not using Vercel: Netlify or Cloudflare Pages.
 
 ## Contact details on the site
 
-- Email: jaco.roux9@gmail.com
+- Email: email@jacoroux.co.za
 - Phone / WhatsApp: 065 809 5070 → `https://wa.me/27658095070`
 - LinkedIn: https://www.linkedin.com/in/jaco-roux/
 

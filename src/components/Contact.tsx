@@ -76,7 +76,7 @@ export function Contact() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 rounded-2xl border border-neon-lime/30 bg-neon-lime/10 px-4 py-3 text-sm font-semibold text-neon-lime transition hover:bg-neon-lime/20"
               >
-                WhatsApp {siteConfig.phone}
+                WhatsApp
               </a>
             </li>
             <li>
@@ -85,14 +85,6 @@ export function Contact() {
                 className="text-sm text-fog transition hover:text-neon-pink"
               >
                 {siteConfig.email}
-              </a>
-            </li>
-            <li>
-              <a
-                href={`tel:${siteConfig.phoneE164}`}
-                className="text-sm text-fog transition hover:text-neon-pink"
-              >
-                {siteConfig.phone}
               </a>
             </li>
             <li className="text-sm text-fog-muted">{siteConfig.location}</li>

@@ -53,7 +53,9 @@ export async function POST(request: Request) {
   ].join("\n");
 
   const resendKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.CONTACT_TO_EMAIL || siteConfig.email;
+  // Private delivery only — never used in mailto / UI
+  const toEmail =
+    process.env.CONTACT_TO_EMAIL || "jaco.roux9@gmail.com";
   const fromEmail =
     process.env.CONTACT_FROM_EMAIL || "Portfolio <onboarding@resend.dev>";
 
@@ -87,7 +89,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, delivered: "resend" });
   }
 
-  const mailto = `mailto:${encodeURIComponent(toEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
+  const mailto = `mailto:${encodeURIComponent(siteConfig.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
 
   return NextResponse.json({
     ok: true,
