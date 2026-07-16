@@ -1,4 +1,4 @@
-import emailjs from "@emailjs/nodejs";
+import emailjs, { EmailJSResponseStatus } from "@emailjs/nodejs";
 import { NextResponse } from "next/server";
 import { siteConfig } from "@/lib/site";
 
@@ -20,11 +20,42 @@ function getEmailJsConfig() {
   const publicKey = process.env.EMAIL_PUBLIC_KEY;
   const privateKey = process.env.EMAIL_PRIVATE_KEY;
 
-  if (!serviceId || !templateId || !publicKey) {
+  if (!serviceId || !templateId || !publicKey || !privateKey) {
     return null;
   }
 
   return { serviceId, templateId, publicKey, privateKey };
+}
+
+function getEmailJsErrorMessage(err: unknown) {
+  if (err instanceof EmailJSResponseStatus) {
+    const detail = err.text?.trim() || "Unknown EmailJS error";
+    console.error("EmailJS error:", err.status, detail);
+
+    if (/non-browser|disabled/i.test(detail)) {
+      return "Email service is not enabled for server requests. In EmailJS, go to Account → Security and allow API requests for non-browser apps.";
+    }
+
+    if (err.status === 403 || /private key|accessToken|unauthorized/i.test(detail)) {
+      return "Email service authentication failed. Check EMAIL_PUBLIC_KEY and EMAIL_PRIVATE_KEY in your hosting env vars.";
+    }
+
+    if (err.status === 400) {
+      return "Email template or service configuration is invalid. Check EMAIL_SERVICE and EMAIL_TEMPLATE.";
+    }
+
+    if (err.status === 429) {
+      return "Too many requests. Please wait a moment and try again, or use WhatsApp.";
+    }
+
+    if (process.env.NODE_ENV === "development") {
+      return `EmailJS error (${err.status}): ${detail}`;
+    }
+  } else {
+    console.error("EmailJS error:", err);
+  }
+
+  return "Could not send your enquiry. Try WhatsApp instead.";
 }
 
 export async function POST(request: Request) {
@@ -78,16 +109,15 @@ export async function POST(request: Request) {
         },
         {
           publicKey: emailJs.publicKey,
-          ...(emailJs.privateKey ? { privateKey: emailJs.privateKey } : {}),
+          privateKey: emailJs.privateKey,
         },
       );
 
       return NextResponse.json({ ok: true, delivered: "emailjs" });
     } catch (err) {
-      console.error("EmailJS error:", err);
       return NextResponse.json(
         {
-          error: "Could not send your enquiry. Try WhatsApp instead.",
+          error: getEmailJsErrorMessage(err),
         },
         { status: 502 },
       );

@@ -36,7 +36,9 @@ EMAIL_PUBLIC_KEY=your_public_key
 EMAIL_PRIVATE_KEY=your_private_key
 ```
 
-Get these from the [EmailJS dashboard](https://dashboard.emailjs.com). Enable **API requests for non-browser apps** under Account → Security, and turn on **Use Private Key** if you set `EMAIL_PRIVATE_KEY`.
+Get these from the [EmailJS dashboard](https://dashboard.emailjs.com). Enable **API requests for non-browser apps** under Account → Security, and turn on **Use Private Key** (required for server-side sending).
+
+Add all four variables to your hosting provider too (e.g. Vercel → Project → Settings → Environment Variables). Local `.env` is not deployed automatically.
 
 ## Deploy (recommended: Vercel)
 
