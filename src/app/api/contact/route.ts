@@ -1,3 +1,4 @@
+import emailjs from "@emailjs/nodejs";
 import { NextResponse } from "next/server";
 import { siteConfig } from "@/lib/site";
 
@@ -11,6 +12,19 @@ type ContactBody = {
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function getEmailJsConfig() {
+  const serviceId = process.env.EMAIL_SERVICE;
+  const templateId = process.env.EMAIL_TEMPLATE;
+  const publicKey = process.env.EMAIL_PUBLIC_KEY;
+  const privateKey = process.env.EMAIL_PRIVATE_KEY;
+
+  if (!serviceId || !templateId || !publicKey) {
+    return null;
+  }
+
+  return { serviceId, templateId, publicKey, privateKey };
 }
 
 export async function POST(request: Request) {
@@ -42,6 +56,44 @@ export async function POST(request: Request) {
     );
   }
 
+  const emailJs = getEmailJsConfig();
+
+  if (emailJs) {
+    try {
+      await emailjs.send(
+        emailJs.serviceId,
+        emailJs.templateId,
+        {
+          name,
+          email,
+          phone: phone || "—",
+          business: business || "—",
+          message,
+          time: new Date().toLocaleString("en-ZA", {
+            timeZone: "Africa/Johannesburg",
+            dateStyle: "medium",
+            timeStyle: "short",
+          }),
+          reply_to: email,
+        },
+        {
+          publicKey: emailJs.publicKey,
+          ...(emailJs.privateKey ? { privateKey: emailJs.privateKey } : {}),
+        },
+      );
+
+      return NextResponse.json({ ok: true, delivered: "emailjs" });
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      return NextResponse.json(
+        {
+          error: "Could not send your enquiry. Try WhatsApp instead.",
+        },
+        { status: 502 },
+      );
+    }
+  }
+
   const subject = `Website enquiry from ${name}${business ? ` (${business})` : ""}`;
   const text = [
     `Name: ${name}`,
@@ -51,43 +103,6 @@ export async function POST(request: Request) {
     "",
     message,
   ].join("\n");
-
-  const resendKey = process.env.RESEND_API_KEY;
-  // Private delivery only — never used in mailto / UI
-  const toEmail =
-    process.env.CONTACT_TO_EMAIL || "jaco.roux9@gmail.com";
-  const fromEmail =
-    process.env.CONTACT_FROM_EMAIL || "Portfolio <onboarding@resend.dev>";
-
-  if (resendKey) {
-    const resendResponse = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: fromEmail,
-        to: [toEmail],
-        reply_to: email,
-        subject,
-        text,
-      }),
-    });
-
-    if (!resendResponse.ok) {
-      const detail = await resendResponse.text();
-      console.error("Resend error:", detail);
-      return NextResponse.json(
-        {
-          error: "Could not send via email service. Try WhatsApp instead.",
-        },
-        { status: 502 },
-      );
-    }
-
-    return NextResponse.json({ ok: true, delivered: "resend" });
-  }
 
   const mailto = `mailto:${encodeURIComponent(siteConfig.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
 

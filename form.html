@@ -1,0 +1,57 @@
+<div style="font-family: system-ui, sans-serif, Arial; font-size: 12px">
+  <div>
+    A website enquiry from <strong>{{name}}</strong> has been received. Kindly
+    respond at your earliest convenience.
+  </div>
+  <div
+    style="
+      margin-top: 20px;
+      padding: 15px 0;
+      border-width: 1px 0;
+      border-style: dashed;
+      border-color: lightgrey;
+    "
+  >
+    <table role="presentation" style="border-collapse: collapse; width: 100%">
+      <tr>
+        <td style="vertical-align: top; width: 56px">
+          <div
+            style="
+              padding: 6px 10px;
+              margin: 0 10px 0 0;
+              background-color: aliceblue;
+              border-radius: 5px;
+              font-size: 26px;
+              text-align: center;
+            "
+            role="img"
+          >
+            👤
+          </div>
+        </td>
+        <td style="vertical-align: top">
+          <div style="color: #2c3e50; font-size: 16px; margin-bottom: 4px">
+            <strong>{{name}}</strong>
+          </div>
+          <div style="color: #666666; font-size: 13px; margin-bottom: 2px">
+            <strong>Email:</strong>
+            <a href="mailto:{{email}}" style="color: #2c3e50">{{email}}</a>
+          </div>
+          <div style="color: #666666; font-size: 13px; margin-bottom: 2px">
+            <strong>Phone / WhatsApp:</strong> {{phone}}
+          </div>
+          <div style="color: #666666; font-size: 13px; margin-bottom: 2px">
+            <strong>Business / project:</strong> {{business}}
+          </div>
+          <div style="color: #cccccc; font-size: 13px; margin-top: 8px">
+            {{time}}
+          </div>
+          <p style="font-size: 16px; color: #2c3e50; margin: 12px 0 0">
+            <strong>How can I help?</strong><br />
+            {{message}}
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

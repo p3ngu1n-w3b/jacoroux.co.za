@@ -7,7 +7,7 @@ Dark, neon-accented portfolio + lead-gen site for **Jaco Roux**: sell website bu
 - Next.js 15 (App Router)
 - TypeScript
 - Tailwind CSS v4
-- Contact API with optional [Resend](https://resend.com) delivery (falls back to `mailto:`)
+- Contact API with [EmailJS](https://www.emailjs.com) delivery (falls back to `mailto:`)
 
 ## Getting started
 
@@ -25,23 +25,24 @@ npm start
 
 ## Contact form
 
-Without Resend, submitting the form opens the visitor’s mail client with a pre-filled enquiry to `email@jacoroux.co.za`.
+Without EmailJS configured, submitting the form opens the visitor’s mail client with a pre-filled enquiry to `email@jacoroux.co.za`.
 
 To send email server-side, create `.env.local`:
 
 ```env
-RESEND_API_KEY=re_xxxxxxxx
-CONTACT_TO_EMAIL=email@jacoroux.co.za
-CONTACT_FROM_EMAIL=Jaco Roux <email@jacoroux.co.za>
+EMAIL_SERVICE=service_xxxxxxxx
+EMAIL_TEMPLATE=template_xxxxxxxx
+EMAIL_PUBLIC_KEY=your_public_key
+EMAIL_PRIVATE_KEY=your_private_key
 ```
 
-After verifying a domain in Resend, keep `CONTACT_FROM_EMAIL` aligned to the address you want recipients to see, for example `Jaco Roux <email@jacoroux.co.za>`.
+Get these from the [EmailJS dashboard](https://dashboard.emailjs.com). Enable **API requests for non-browser apps** under Account → Security, and turn on **Use Private Key** if you set `EMAIL_PRIVATE_KEY`.
 
 ## Deploy (recommended: Vercel)
 
 1. Push this repo to GitHub.
 2. Import the project at [vercel.com/new](https://vercel.com/new).
-3. Add the env vars above if using Resend.
+3. Add the EmailJS env vars above.
 4. Deploy — Vercel provides HTTPS and a `*.vercel.app` URL immediately.
 
 ### Custom domain ideas

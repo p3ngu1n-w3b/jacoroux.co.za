@@ -34,6 +34,7 @@ export function Contact() {
       const result = (await response.json()) as {
         ok?: boolean;
         error?: string;
+        delivered?: string;
         mailto?: string;
       };
 
@@ -44,7 +45,7 @@ export function Contact() {
       setStatus("success");
       form.reset();
 
-      if (result.mailto) {
+      if (result.delivered === "mailto" && result.mailto) {
         window.location.href = result.mailto;
       }
     } catch (err) {
@@ -171,8 +172,8 @@ export function Contact() {
 
           {status === "success" && (
             <p className="mt-4 text-sm text-neon-lime" role="status">
-              Thanks — your enquiry is ready. If your email client opened, just
-              hit send. Otherwise WhatsApp or call me directly.
+              Thanks — your enquiry was sent. I&apos;ll get back to you within one
+              business day.
             </p>
           )}
           {status === "error" && (
