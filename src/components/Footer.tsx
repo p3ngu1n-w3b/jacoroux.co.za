@@ -49,20 +49,10 @@ export function Footer() {
             </li>
             <li>
               <a
-                href={`tel:${siteConfig.phoneE164}`}
+                href="#contact"
                 className="transition hover:text-neon-pink"
               >
-                {siteConfig.phone}
-              </a>
-            </li>
-            <li>
-              <a
-                href={siteConfig.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition hover:text-neon-lime"
-              >
-                WhatsApp
+                Contact
               </a>
             </li>
             <li>

@@ -66,20 +66,10 @@ export function Contact() {
           </h2>
           <p className="mt-4 text-fog-muted">
             Tell me about your business and what you need. I usually reply within
-            one business day — faster on WhatsApp.
+            one business day.
           </p>
 
           <ul className="mt-8 space-y-4">
-            <li>
-              <a
-                href={siteConfig.whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 rounded-2xl border border-neon-lime/30 bg-neon-lime/10 px-4 py-3 text-sm font-semibold text-neon-lime transition hover:bg-neon-lime/20"
-              >
-                WhatsApp
-              </a>
-            </li>
             <li>
               <a
                 href={`mailto:${siteConfig.email}`}
@@ -118,7 +108,7 @@ export function Contact() {
               />
             </label>
             <label className="block text-sm">
-              <span className="mb-1.5 block text-fog-muted">Phone / WhatsApp</span>
+              <span className="mb-1.5 block text-fog-muted">Phone</span>
               <input
                 name="phone"
                 type="tel"
@@ -160,14 +150,6 @@ export function Contact() {
             >
               {status === "loading" ? "Sending…" : "Send enquiry"}
             </button>
-            <a
-              href={siteConfig.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-center text-sm text-fog-muted hover:text-neon-lime sm:text-left"
-            >
-              Prefer WhatsApp? Chat now
-            </a>
           </div>
 
           {status === "success" && (
@@ -178,9 +160,9 @@ export function Contact() {
           )}
           {status === "error" && (
             <p className="mt-4 text-sm text-red-400" role="alert">
-              {error} You can still reach me on WhatsApp or{" "}
+              {error} You can still{" "}
               <a href={`mailto:${siteConfig.email}`} className="underline">
-                email
+                email me
               </a>
               .
             </p>
