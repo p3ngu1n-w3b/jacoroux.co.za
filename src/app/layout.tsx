@@ -112,7 +112,6 @@ const jsonLd = {
       ],
       founder: { "@id": `${siteConfig.url}/#person` },
       email: siteConfig.email,
-      priceRange: "RR",
     },
   ],
 };

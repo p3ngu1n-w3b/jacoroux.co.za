@@ -24,14 +24,9 @@ export function Services() {
               key={service.id}
               className="group relative overflow-hidden rounded-3xl border border-ink-border bg-ink-card/80 p-6 transition hover:border-neon-pink/40 hover:shadow-[0_0_40px_rgba(255,43,214,0.08)] sm:p-8"
             >
-              <div className="flex items-start justify-between gap-4">
-                <span className="font-display text-sm text-neon-violet">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span className="rounded-full border border-neon-lime/30 bg-neon-lime/10 px-3 py-1 text-xs font-medium text-neon-lime">
-                  {service.priceFrom}
-                </span>
-              </div>
+              <span className="font-display text-sm text-neon-violet">
+                {String(index + 1).padStart(2, "0")}
+              </span>
               <h3 className="mt-4 font-display text-2xl font-semibold text-white">
                 {service.title}
               </h3>
@@ -54,8 +49,7 @@ export function Services() {
         </div>
 
         <p className="mt-8 text-sm text-fog-muted">
-          Pricing is a starting guide — final quotes depend on pages, content,
-          and features.{" "}
+          Every project is scoped to your goals.{" "}
           <a href="#contact" className="text-neon-pink hover:underline">
             Tell me what you need
           </a>{" "}

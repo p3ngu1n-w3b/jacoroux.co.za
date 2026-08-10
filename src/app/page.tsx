@@ -116,14 +116,9 @@ export default function HomePage() {
                 }`}
               >
                 <div className="pointer-events-none absolute right-0 top-0 h-20 w-20 rounded-bl-[2rem] bg-neon-violet/10 blur-2xl transition group-hover:bg-neon-pink/15" />
-                <div className="flex items-start justify-between gap-4">
-                  <span className="font-display text-xs uppercase tracking-[0.22em] text-neon-violet">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="rounded-full border border-neon-lime/35 bg-neon-lime/10 px-3 py-1 text-xs font-medium text-neon-lime">
-                    {service.priceFrom}
-                  </span>
-                </div>
+                <span className="font-display text-xs uppercase tracking-[0.22em] text-neon-violet">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 <h3 className="mt-5 font-display text-2xl text-white sm:text-[1.75rem]">
                   {service.title}
                 </h3>
@@ -142,8 +137,7 @@ export default function HomePage() {
             ))}
           </div>
           <p className="mt-8 text-sm text-fog-muted">
-            Pricing is a starting guide. Final quotes depend on scope, content,
-            and integrations.{" "}
+            Every project is scoped to your goals.{" "}
             <a href="#contact" className="text-neon-pink hover:underline">
               Tell me what you need
             </a>{" "}
