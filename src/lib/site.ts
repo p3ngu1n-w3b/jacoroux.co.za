@@ -24,7 +24,6 @@ export const services = [
   {
     id: "business-websites",
     title: "Business Websites",
-    priceFrom: "From R8 500",
     summary:
       "A clean, fast site that explains what you do, builds trust, and makes it easy to call, WhatsApp, or request a quote.",
     points: [
@@ -37,7 +36,6 @@ export const services = [
   {
     id: "redesigns",
     title: "Website Redesigns",
-    priceFrom: "From R6 500",
     summary:
       "Outdated look, slow pages, or confusing navigation? I rebuild for clarity, speed, and more enquiries.",
     points: [
@@ -50,7 +48,6 @@ export const services = [
   {
     id: "landing-pages",
     title: "Landing Pages",
-    priceFrom: "From R4 500",
     summary:
       "One sharp page for a campaign, product, or service — built to turn clicks into conversations.",
     points: [
@@ -63,7 +60,6 @@ export const services = [
   {
     id: "seo-performance",
     title: "SEO & Performance Polish",
-    priceFrom: "From R2 500",
     summary:
       "Tighten metadata, structure, Core Web Vitals, and local SEO so Google — and customers — can find you.",
     points: [

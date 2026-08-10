@@ -62,7 +62,7 @@ Alternatives if not using Vercel: Netlify or Cloudflare Pages.
 ## Site map
 
 - Hero (quote + work CTAs)
-- Services (packages with “from” pricing)
+- Services (packages)
 - How it works
 - Portfolio (JT Field, Generator Services, Wildfire Support)
 - Why me / Experience / About
