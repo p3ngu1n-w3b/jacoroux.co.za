@@ -5,7 +5,7 @@ export const siteConfig = {
     "Senior frontend developer based in George, Western Cape. I design and build conversion-focused business websites for SMEs across the Garden Route and South Africa. Get a free quote.",
   url: "https://jacoroux.co.za",
   locale: "en_ZA",
-  email: "email@jacoroux.co.za",
+  email: "jaco.roux9@gmail.com",
   linkedin: "https://www.linkedin.com/in/jaco-roux/",
   location: "George, Western Cape, South Africa",
   region: "Garden Route",

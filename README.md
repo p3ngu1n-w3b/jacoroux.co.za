@@ -25,7 +25,7 @@ npm start
 
 ## Contact form
 
-Without EmailJS configured, submitting the form opens the visitor’s mail client with a pre-filled enquiry to `email@jacoroux.co.za`.
+Without EmailJS configured, submitting the form opens the visitor’s mail client with a pre-filled enquiry to `jaco.roux9@gmail.com`.
 
 To send email server-side, create `.env.local`:
 
@@ -70,7 +70,7 @@ Alternatives if not using Vercel: Netlify or Cloudflare Pages.
 
 ## Contact details on the site
 
-- Email: email@jacoroux.co.za
+- Email: jaco.roux9@gmail.com
 - Contact form: `#contact` on the homepage
 - LinkedIn: https://www.linkedin.com/in/jaco-roux/
 
