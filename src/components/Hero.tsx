@@ -42,6 +42,14 @@ export function Hero() {
           >
             See my work
           </a>
+          <a
+            href={siteConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-center text-sm text-fog-muted underline-offset-4 transition hover:text-neon-lime hover:underline sm:ml-2 sm:text-left"
+          >
+            Or WhatsApp {siteConfig.phone} →
+          </a>
         </div>
 
         <dl className="mt-14 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-3">
