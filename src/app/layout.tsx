@@ -83,6 +83,7 @@ const jsonLd = {
       name: siteConfig.name,
       url: siteConfig.url,
       email: siteConfig.email,
+      telephone: siteConfig.phoneE164,
       jobTitle: "Senior Frontend Developer & Website Designer",
       address: {
         "@type": "PostalAddress",
@@ -111,6 +112,7 @@ const jsonLd = {
         },
       ],
       founder: { "@id": `${siteConfig.url}/#person` },
+      telephone: siteConfig.phoneE164,
       email: siteConfig.email,
     },
   ],

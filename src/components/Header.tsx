@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { navLinks } from "@/lib/site";
+import { navLinks, siteConfig } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -105,6 +105,14 @@ export function Header() {
               onClick={() => setOpen(false)}
             >
               Get a quote
+            </a>
+            <a
+              href={siteConfig.whatsappUrl}
+              className="text-sm text-fog-muted hover:text-neon-lime"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp {siteConfig.phone}
             </a>
           </nav>
         </div>

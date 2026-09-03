@@ -46,6 +46,14 @@ export default function HomePage() {
               >
                 View showcase
               </a>
+              <a
+                href={siteConfig.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-neon-lime/40 px-6 py-3 text-sm font-semibold text-neon-lime transition hover:bg-neon-lime/10"
+              >
+                WhatsApp {siteConfig.phone}
+              </a>
             </div>
           </div>
           <div className="relative">

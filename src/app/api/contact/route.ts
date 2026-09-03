@@ -45,7 +45,7 @@ function getEmailJsErrorMessage(err: unknown) {
     }
 
     if (err.status === 429) {
-      return "Too many requests. Please wait a moment and try again, or email me directly.";
+      return "Too many requests. Please wait a moment and try again, or use WhatsApp.";
     }
 
     if (process.env.NODE_ENV === "development") {
@@ -55,7 +55,7 @@ function getEmailJsErrorMessage(err: unknown) {
     console.error("EmailJS error:", err);
   }
 
-  return "Could not send your enquiry. Please try again or email me directly.";
+  return "Could not send your enquiry. Try WhatsApp instead.";
 }
 
 export async function POST(request: Request) {

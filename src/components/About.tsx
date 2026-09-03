@@ -25,9 +25,9 @@ export function About() {
               generates leads.
             </p>
             <p>
-              Prefer a quick note in Afrikaans or a detailed English brief? Both
-              work. Let&apos;s make getting found online the easy part of your
-              business.
+              Prefer a WhatsApp voice note in Afrikaans or a detailed English
+              brief? Both work. Let&apos;s make getting found online the easy
+              part of your business.
             </p>
           </div>
           <a

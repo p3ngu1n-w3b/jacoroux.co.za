@@ -66,11 +66,12 @@ Alternatives if not using Vercel: Netlify or Cloudflare Pages.
 - How it works
 - Portfolio (JT Field, Generator Services, Wildfire Support)
 - Why me / Experience / About
-- Contact (form + email + POPIA note)
+- Contact (form + WhatsApp + phone + email + POPIA note)
 
 ## Contact details on the site
 
 - Email: jaco.roux9@gmail.com
+- Phone / WhatsApp: 061 514 0414 → `https://wa.me/27615140414`
 - Contact form: `#contact` on the homepage
 - LinkedIn: https://www.linkedin.com/in/jaco-roux/
 
