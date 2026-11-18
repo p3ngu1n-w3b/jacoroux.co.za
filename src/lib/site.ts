@@ -164,6 +164,19 @@ export const portfolio = [
     tags: ["Training", "Courses", "Quotes"],
     accent: "lime" as const,
   },
+  {
+    title: "Pretty Meisie",
+    industry: "Beauty / E-commerce",
+    url: "https://pretty-meisie.netlify.app/",
+    problem:
+      "A South African beauty seller needed a personal catalogue that felt curated — not like another marketplace cart.",
+    solution:
+      "Built a WhatsApp-first beauty catalogue with product combos, clear pricing, and one-tap order flows.",
+    result:
+      "Shoppers browse the edit and order directly with guidance over WhatsApp.",
+    tags: ["Catalogue", "WhatsApp", "Beauty"],
+    accent: "violet" as const,
+  },
 ] as const;
 
 export const whyMe = [

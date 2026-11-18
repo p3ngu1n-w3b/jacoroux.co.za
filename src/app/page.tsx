@@ -151,27 +151,35 @@ export default function HomePage() {
           <h2 className="font-display text-4xl text-white sm:text-5xl">
             Selected live builds
           </h2>
-          <div className="mt-10 space-y-6">
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {portfolio.map((project, index) => (
               <a
                 key={project.url}
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block rounded-[2rem] border border-white/10 bg-ink-card/70 p-8 transition hover:border-neon-pink/50"
+                className="group flex flex-col rounded-3xl border border-white/10 bg-ink-card/70 p-5 transition hover:border-neon-pink/50 sm:p-6"
               >
-                <div className="grid gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-end">
-                  <p className="font-display text-5xl text-white/25">{`0${index + 1}`}</p>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-neon-lime">
-                      {project.industry}
-                    </p>
-                    <h3 className="mt-1 font-display text-4xl text-white transition group-hover:text-neon-pink">
-                      {project.title}
-                    </h3>
-                    <p className="mt-2 text-fog-muted">{project.result}</p>
-                  </div>
+                <div className="flex items-start justify-between gap-3">
+                  <p className="font-display text-2xl text-white/25">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <span
+                    aria-hidden="true"
+                    className="text-sm text-fog-muted transition group-hover:text-neon-pink"
+                  >
+                    ↗
+                  </span>
                 </div>
+                <p className="mt-4 text-xs uppercase tracking-[0.2em] text-neon-lime">
+                  {project.industry}
+                </p>
+                <h3 className="mt-1 font-display text-2xl text-white transition group-hover:text-neon-pink">
+                  {project.title}
+                </h3>
+                <p className="mt-2 line-clamp-2 flex-1 text-sm text-fog-muted">
+                  {project.result}
+                </p>
               </a>
             ))}
           </div>

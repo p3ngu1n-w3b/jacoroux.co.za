@@ -47,7 +47,7 @@ export function Hero() {
         <dl className="mt-14 grid max-w-3xl grid-cols-2 gap-4 sm:grid-cols-3">
           {[
             { label: "Years shipping UI", value: `${siteConfig.yearsExperience}+` },
-            { label: "Live client sites", value: "5+" },
+            { label: "Live client sites", value: "6+" },
             { label: "Stack", value: "React · Next" },
           ].map((item) => (
             <div
