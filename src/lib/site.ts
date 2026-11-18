@@ -138,6 +138,32 @@ export const portfolio = [
     tags: ["Nonprofit", "Donate", "SEO"],
     accent: "violet" as const,
   },
+  {
+    title: "Azur Dolphin Lodge",
+    industry: "Self-catering / Hospitality",
+    url: "https://azurdolphin.com/",
+    problem:
+      "A Garden Route lodge needed a calm booking-ready presence that sells valley privacy and beach access.",
+    solution:
+      "Built a conversion-focused lodge site with amenities, distances, guest proof, and clear enquire/book CTAs.",
+    result:
+      "Guests can understand the stay and enquire or book without hunting for details.",
+    tags: ["Hospitality", "Local", "Booking"],
+    accent: "pink" as const,
+  },
+  {
+    title: "Firstcare Training",
+    industry: "Health & Safety Training",
+    url: "https://firstcaretraining.org.za",
+    problem:
+      "An accredited first aid and fire safety provider needed a credible course site that drives quotes across the Garden Route.",
+    solution:
+      "Delivered a training-focused site with course programmes, proof, and enquiry CTAs for workplaces and farms.",
+    result:
+      "Teams can review courses and request dates or group quotes in a few taps.",
+    tags: ["Training", "Courses", "Quotes"],
+    accent: "lime" as const,
+  },
 ] as const;
 
 export const whyMe = [
